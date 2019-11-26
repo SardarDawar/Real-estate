@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% block title %}ALUM{% endblock %}
+
+{% block content %}
+
+<div class="mx-auto mb-5" style="width: 350px;">
+  <div class="card" style="width: 22rem;">
+
+    <div class="card-body">
+      <form action="{% url 'editProfile' %}" method="POST">
+        {% csrf_token %}
+        <h5 class="card-title font-weight-bold">{{ request.user.username }}</h5>
+        <table class="table">
+
+          <tbody>
+            <tr>
+
+              <td>Name</td>
+              <td><input class="form-control border-0 bg-transparent" name="username" type="text"
+                  placeholder="{{ request.user.username }}" value="{{ request.user.username }}" readonly></td>
+
+            </tr>
+
+            <tr>
+
+
+
+            </tr>
+            <tr>
+
+              <td>Email ID</td>
+              <td><input class="form-control border-0 bg-transparent" name="email" type="text"
+                  placeholder="{{ request.user.email }}" value="{{ request.user.email }}" autocomplete="off"></td>
+
+
+            </tr>
+            {% if profile %}
+
+            <tr>
+
+              <td>Phone</td>
+
+              <td> <input class="form-control border-0 bg-transparent" name="contactNumber" type="text"
+                  placeholder="{{ profile.contactNumber }}" value="{{ profile.contactNumber }}"></td>
+
+            </tr>
+
+            <tr>
+
+              <td>occupation</td>
+
+              <td> <input class="form-control border-0 bg-transparent" name="occupation" type="text"
+                  placeholder="{{ profile.occupation }}" value="{{ profile.occupation }}"></td>
+
+            </tr>
+            <tr>
+
+              <td>
+                <h5>Property Requirements</h5>
+              </td>
+
+            </tr>
+            <tr>
+
+              <td>Price Range</td>
+
+              <td> <input class="form-control border-0 bg-transparent" name="Price_Range" type="text"
+                  placeholder="{{ profile.Price_Range }}" value="{{ profile.Price_Range }}"></td>
+
+            </tr>
+            <tr>
+            <td>Has Pre-Approval?</td>
+
+            <td> <input class="form-control border-0 bg-transparent" name="has_pre_approval" type="text"
+                placeholder="{{ profile.has_pre_approval }}" value="{{ profile.has_pre_approval }}"></td>
+
+            </tr>
+            <tr>
+            <td>Property Type</td>
+
+            <td> <input class="form-control border-0 bg-transparent" name="property_type" type="text"
+                placeholder="{{ profile.property_type }}" value="{{ profile.property_type }}"></td>
+
+            </tr>
+            <tr>
+            <td>Beds</td>
+
+            <td> <input class="form-control border-0 bg-transparent" name="beds" type="text"
+                placeholder="{{ profile.beds }}" value="{{ profile.beds }}"></td>
+
+            </tr>
+            <tr>
+            <td>Bath</td>
+
+            <td> <input class="form-control border-0 bg-transparent" name="bath" type="text"
+                placeholder="{{ profile.bath }}" value="{{ profile.bath }}"></td>
+
+            </tr>
+            <tr>
+            <td>Lot Size</td>
+
+            <td> <input class="form-control border-0 bg-transparent" name="lot_size" type="text"
+                placeholder="{{ profile.lot_size }}" value="{{ profile.lot_size }}"></td>
+
+            </tr>
+            <tr>
+              <td>Stories</td>
+  
+              <td> <input class="form-control border-0 bg-transparent" name="stories" type="text"
+                  placeholder="{{ profile.stories }}" value="{{ profile.stories }}"></td>
+  
+              </tr>
+            <tr>
+              <td>Location Preference</td>
+  
+              <td> <input class="form-control border-0 bg-transparent" name="location_preference" type="text"
+                  placeholder="{{ profile.location_preference }}" value="{{ profile.location_preference }}"></td>
+  
+              </tr>
+              <tr>
+                <td>Looking to buy in how many months?</td>
+    
+                <td> <input class="form-control border-0 bg-transparent" name="looking_to_buy_in_how_many_months" type="text"
+                    placeholder="{{ profile.looking_to_buy_in_how_many_months }}" value="{{ profile.looking_to_buy_in_how_many_months }}"></td>
+    
+                </tr>
+                <tr>
+                  <td>How long have you been house hunting</td>
+      
+                  <td> <input class="form-control border-0 bg-transparent" name="How_long_have_you_been_house_hunting" type="text"
+                      placeholder="{{ profile.How_long_have_you_been_house_hunting }}" value="{{ profile.How_long_have_you_been_house_hunting }}"></td>
+      
+                  </tr>
+                  <td><h5>Lifestyle Requirements </h5> </td>
+
+                  <tr>
+                    <td>Life Style</td>
+        
+                    <td> 
+                       
+                          <select name="Life_style" class="form-control border-0 bg-transparent">
+                              <option value="None" class="form-control border-0 bg-transparent">None</option>
+                            <option value="Short Commute to work" class="form-control border-0 bg-transparent">Short Commute to work</option>
+                            <option value="Access to shopping" class="form-control border-0 bg-transparent">Access to shopping</option>
+                            <option value="Vastu Preference" class="form-control border-0 bg-transparent">Vastu Preference</option>
+                            <option value="School Requirements" class="form-control border-0 bg-transparent">School Requirements</option>
+                          </select>      </td>
+                                            </tr>
+                    <tr>
+                      <td>Any Other</td>
+          
+                      <td> <input class="form-control border-0 bg-transparent" name="any_other" type="text"
+                          placeholder="{{ profile.any_other }}" value="{{ profile.any_other }}"></td>
+          
+                      </tr>
+            
+            {% endif %}
+            <tr>
+              <td colspan="2" class="border-0">
+                <input type="hidden" name="password" value="{{ request.user.password }}" id="id_password">
+              </td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="border-0">
+                <input type="submit" class="btn btn-primary" value="Save">
+              </td>
+            </tr>
+            <!-- 
+                <tr>
+                    <td colspan="2" class="border-0">
+                      <a  class="btn btn-primary" value="Update Profile Information" href="{% url 'editProfileUSer' %}">Update Profile Information</a>
+                    </td>
+                  </tr> -->
+            <tr>
+              <td colspan="2" class="border-0">
+                <a class="btn btn-primary" value="Change Password" href="{% url 'change_password' %}">Change
+                  Password</a>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}

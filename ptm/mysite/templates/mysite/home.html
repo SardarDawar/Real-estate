@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Real State {% endblock %}
+<style>
+        ::placeholder  {
+            text-align: right;
+            font-style: italic
+        }
+    </style>
+
+
+{% block register %}
+
+{% if request.user.is_authenticated  %}
+<div class="register-login-area">
+
+
+
+
+    <a href="{% url 'profile' request.user.username  %}" class="btn text-white">{{ request.user.username }}</a>
+    <a href="{% url 'logout' %}" class="btn text-white">logout</a>
+
+</div>
+{% else %}
+<div class="register-login-area">
+    <a href="{% url 'register' %}" class="btn text-white">Signup</a>
+    <a href="{% url 'login' %}" class="btn text-white">Login</a>
+</div>
+{% endif %}
+{% endblock  %}
+
+
+
+
+
+{% block content %}
+<div class=" w3-section">
+        
+        <img class="mySlides" src="{% static 'music/img/home.jpg' %}"   style="height:500px;width:100%">
+        <img class="mySlides" src="{% static 'music/img/two.jpg' %}" style="height:500px;width:100%">
+        <img class="mySlides" src="{% static 'music/img/three.jpg' %}" style="height:500px;width:100%">
+    </div>
+    <div class="centered">
+        <form>
+            <input type="text" id="field" class="fontAwesome form-control" style="opacity: 0.8" placeholder="EX: Temp:AZ &#xf002;">
+        </form>
+
+    </div>
+    <div style="margin-top: 2%"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+
+                    <img  src="{% static 'music/img/buying.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Buy</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Buy</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+
+                    <img  src="{% static 'music/img/sell.jfif' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <br><br><br>
+                        <h5 class="card-title">Sell</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Sell</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+
+
+                    <img  src="{% static 'music/img/rent.jpg' %}" class="card-img-top" alt="...">
+                   
+                    <div class="card-body"><br>
+                        <h5 class="card-title">Rent</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card's content.</p>
+                        <a href="#" class="btn btn-primary">Rent</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div style="margin-top: 2%"></div>
+    <hr class="featurette-divider">
+    <div class="container">
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your
+                        mind.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
+                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+                    tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                <img src="{% static 'music/img/side.jpg' %}" height="500" width="480">
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for
+                        yourself.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
+                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+                    tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5 order-md-1">
+                    <img src="{% static 'music/img/side.jpg' %}" height="500" width="460">
+
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis
+                    euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus,
+                    tellus ac cursus commodo.</p>
+            </div>
+            <div class="col-md-5">
+                    <img src="{% static 'music/img/side.jpg' %}" height="500" width="480">
+
+            </div>
+        </div>
+
+        <hr class="featurette-divider">
+    </div>
+    <!-- <div style="margin-top: 2%"></div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="circle" style="padding-top:30%">It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it
+                has a more-or-less normal distribution of letters,</div>
+        </div>
+        <div class="col-md-4">
+
+            <div class="circle" style="padding-top:30%">It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it
+                has a more-or-less normal distribution of letters,</div>
+        </div>
+        <div class="col-md-4">
+
+            <div class="circle" style="padding-top:30%">It is a long established fact that a reader will be distracted
+                by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it
+                has a more-or-less normal distribution of letters,</div>
+        </div>
+    </div> -->
+    
+            
+
+
+
+
+    <footer id="sticky-footer" class="py-2 text-white">
+        <a href="#" class="text-white">About</a>&nbsp;&nbsp;&nbsp;
+        <a href="#" class="text-white">careers</a>&nbsp;&nbsp;&nbsp;
+        <a href="#" class="text-white">Help</a>&nbsp;&nbsp;&nbsp;
+        <span style="margin-left: 80%" class="fa fa-facebook"></span>
+        <span class="fa fa-instagram"></span>
+        <span class="fa fa-twitter"></span>
+
+    </footer>
+    <script>
+            var myIndex = 0;
+            carousel();
+    
+            function carousel() {
+                var i;
+                var x = document.getElementsByClassName("mySlides");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                myIndex++;
+                if (myIndex > x.length) { myIndex = 1 }
+                x[myIndex - 1].style.display = "block";
+                setTimeout(carousel, 3000); // Change image every 2 seconds
+            }
+        </script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.3/dist/js/bootstrap.bundle.min.js"><\/script>')</script>
+
+{% endblock %}
+        

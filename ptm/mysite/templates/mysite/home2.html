@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+
+{% block title %}Real State{% endblock %}
+
+{% block content %}
+
+<div class="mx-auto" style="width: 350px;">
+<div class="card" style="width: 22rem;">
+  {% if messages %}  
+    {% for i in messages %}
+    <div class="alert alert-success" role="alert">
+        {{ i }}
+      </div>
+    {% endfor %}
+    {% endif %}
+
+    <div class="card-body">
+
+      <h5 class="card-title font-weight-bold">{{ request.user.first_name }}</h5>
+      <table class="table">
+          
+          <tbody>
+      
+            <tr>
+              
+              <td>Name</td>
+              <td>{{ request.user.username }}</td>
+              
+            </tr>
+            <tr>
+    
+              
+            </tr>
+            <tr>
+              
+                <td>Email ID</td>
+                <td>{{ request.user.email }}</td>
+                
+              </tr>
+              {% if profile %}
+       
+                <tr>
+              
+                    <td>Phone</td>
+                    <td>{{ profile.contactNumber }}</td>
+                    
+                  </tr>
+                  <tr>
+              
+                    <td>occupation</td>
+                    <td>{{ profile.occupation }}</td>
+                    
+                  </tr>
+                  <tr>
+           <td><h5>Property Requirements</h5></td> 
+                  </tr>
+              
+                  <tr>
+              
+                    <td>Price Range</td>
+                    <td>{{ profile.Price_Range }}</td>
+                    
+                  </tr>
+                  <tr>
+              
+                    <td>Has Pre-Approval?</td>
+                    <td>{{ profile.has_pre_approval }}</td>
+                    
+                  </tr>
+                  <tr>
+              
+                    <td>Property Type</td>
+                    <td>{{ profile.property_type }}</td>
+                    
+                  </tr>
+           
+                  <tr>
+              
+                    <td>Beds</td>
+                    <td>{{ profile.beds }}</td>
+                    
+                  </tr>
+                  <tr>
+              
+                    <td>Bath</td>
+                    <td>{{ profile.bath }}</td>
+                    
+                  </tr>
+                  <tr>
+              
+                    <td>Lot Size</td>
+                    <td>{{ profile.lot_size }}</td>
+                    
+                  </tr>
+                  <tr>
+              
+                    <td>Stories</td>
+                    <td>{{ profile.stories }}</td>
+                    
+                  </tr>
+                  <tr>
+              
+                    <td>Location Preference</td>
+                    <td>{{ profile.location_preference }}</td>
+                    
+                  </tr>
+                  <tr>
+              
+                    <td>Looking to buy in how many months</td>
+                    <td>{{ profile.looking_to_buy_in_how_many_months }}</td>
+                    
+                  </tr>
+                  <tr>
+              
+                    <td>How long have you been house hunting</td>
+                    <td>{{ profile.How_long_have_you_been_house_hunting }}</td>
+                    
+                  </tr> <tr>
+              
+                    <td><h5>Lifestyle Requirements </h5> </td>
+                    
+                    
+                  </tr> 
+                   <tr>
+              
+                    <td>Life_style</td>
+                    <td>{{ profile.Life_style }}</td>
+                    
+                  </tr>
+                  <tr>
+              {% if profile.any_other %}
+                    <td>Any Other</td>
+                    <td>{{ profile.any_other }}</td>
+                    
+                  </tr>
+                  {% endif %}
+                {% endif %}
+            <tr>
+              
+                <td>Date of Joining</td>
+                <td>{{ request.user.date_joined|timesince }}</td>
+                
+              </tr>
+              <tr>
+              
+                  <td>Last Login</td>
+                  <td>{{ request.user.last_login|timesince }}</td>
+                  
+                </tr>
+                
+                <tr>
+                  <td colspan="2">
+                    <a href="{% url 'editProfile' %}" class="btn btn-primary">Edit Profile</a>
+                  </td>
+                </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+{% endblock %}
